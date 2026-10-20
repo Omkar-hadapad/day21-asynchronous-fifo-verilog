@@ -8,10 +8,13 @@
   `Specification → RTL → Testbench → Simulation → Synthesis → Area → Power → Timing → PPA Review`
 </p>
 
-![Project](https://img.shields.io/badge/Project-Asynchronous%20FIFO-blue)
-![HDL](https://img.shields.io/badge/HDL-Verilog-8A2BE2)
-![Synthesis](https://img.shields.io/badge/Synthesis-Cadence%20Genus-orange)
-![Verification](https://img.shields.io/badge/Verification-24%20Pass%20%7C%200%20Fail-success)
+
+<p align="center">
+  <img alt="Project" src="https://img.shields.io/badge/Project-Asynchronous%20FIFO-blue">
+  <img alt="HDL" src="https://img.shields.io/badge/HDL-Verilog-8A2BE2">
+  <img alt="Synthesis" src="https://img.shields.io/badge/Synthesis-Cadence%20Genus-orange">
+  <img alt="Verification" src="https://img.shields.io/badge/Verification-24%20Pass%20%7C%200%20Fail-success">
+</p>
 
 ---
 
