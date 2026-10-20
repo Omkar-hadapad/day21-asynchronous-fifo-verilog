@@ -1,0 +1,58 @@
+ncsim> 
+ncsim> database -open waves -into waves.shm -default
+Created default SHM database waves
+ncsim> probe -create -shm day21_tb.a day21_tb.b day21_tb.expected_char day21_tb.\
+expected_gray day21_tb.fail_count day21_tb.g day21_tb.gate_a day21_tb.gate_and_y\
+ day21_tb.gate_b day21_tb.gate_not_y day21_tb.gate_or_y day21_tb.gate_xor_y day2\
+1_tb.gray_input day21_tb.gray_output day21_tb.i day21_tb.pass_count day21_tb.r_e\
+mpty day21_tb.r_full day21_tb.r_rd_data day21_tb.rd_clk day21_tb.rd_en day21_tb.\
+received_string day21_tb.reset day21_tb.s_empty day21_tb.s_full day21_tb.s_rd_da\
+ta day21_tb.wr_clk day21_tb.wr_data day21_tb.wr_en
+Created probe 1
+ncsim> run
+====================================================
+ DAY 21: ASYNCHRONOUS FIFO VERIFICATION
+====================================================
+[TEST 01] AND GATE ................ PASS
+[TEST 02] OR GATE ................. PASS
+[TEST 03] NOT GATE ................ PASS
+[TEST 04] XOR GATE ................ PASS
+[TEST 05] BINARY TO GRAY .......... PASS
+[TEST 06] ASYNCHRONOUS RESET ...... PASS
+
+[TEST 07] INITIAL FIFO STATUS
+         FULL  = 0
+         EMPTY = 1
+         RESULT: PASS
+
+[TEST 08] WRITE STRING: OMKAR
+         WRITE[0] = O (ASCII 0x4f) : PASS
+         WRITE[1] = M (ASCII 0x4d) : PASS
+         WRITE[2] = K (ASCII 0x4b) : PASS
+         WRITE[3] = A (ASCII 0x41) : PASS
+         WRITE[4] = R (ASCII 0x52) : PASS
+
+[TEST 09] READ AND VERIFY STRING
+         READ[0] = O (ASCII 0x4f) : PASS
+         READ[1] = M (ASCII 0x4d) : PASS
+         READ[2] = K (ASCII 0x4b) : PASS
+         READ[3] = A (ASCII 0x41) : PASS
+         READ[4] = R (ASCII 0x52) : PASS
+
+[TEST 10] FINAL FIFO STATUS
+         WR_EN = 0
+         RD_EN = 0
+         FULL  = 0
+         EMPTY = 1
+         RESULT: PASS
+
+====================================================
+ EXPECTED STRING : OMKAR
+ RECEIVED STRING : OMKAR
+ TOTAL PASS      : 24
+ TOTAL FAIL      : 0
+ FINAL RESULT    : PASS
+====================================================
+Simulation complete via $finish(1) at time 326 NS + 0
+./day21_tb.v:250         $finish;
+ncsim> run all
