@@ -7,12 +7,12 @@
 <p align="center">
   `Specification → RTL → Testbench → Simulation → Synthesis → Area → Power → Timing → PPA Review`
 </p>
-
+<p align="center">
 ![Project](https://img.shields.io/badge/Project-Asynchronous%20FIFO-blue)
 ![HDL](https://img.shields.io/badge/HDL-Verilog-8A2BE2)
 ![Synthesis](https://img.shields.io/badge/Synthesis-Cadence%20Genus-orange)
 ![Verification](https://img.shields.io/badge/Verification-24%20Pass%20%7C%200%20Fail-success)
-
+</p>
 ---
 
 ## 1. Project Information
@@ -90,9 +90,8 @@ The project covers:
 
 ## 4. FIFO Architecture
 
-## 6. Project Flowchart
 
-## 6. Project Flowchart
+
 
 The flowchart illustrates the complete Day 21 Asynchronous FIFO verification sequence, from initialization and reset through character write/read operations, data comparison, and final pass/fail reporting.
 
