@@ -92,7 +92,9 @@ The project covers:
 
 ## 6. Project Flowchart
 
-The following flowchart illustrates the simulation and verification process of the Day 21 Asynchronous FIFO design, including asynchronous reset, write and read operations, data comparison, and final pass/fail reporting.
+## 6. Project Flowchart
+
+The flowchart illustrates the complete Day 21 Asynchronous FIFO verification sequence, from initialization and reset through character write/read operations, data comparison, and final pass/fail reporting.
 
 ```mermaid
 flowchart TD
@@ -101,64 +103,57 @@ flowchart TD
     C --> D[Reset Pointers and Synchronizers]
     D --> E{FIFO Empty?}
 
-    E -- >Yes --> F[Verify Initial Status]
+    E -- Yes --> F[Verify Initial Status]
     F --> G[Prepare Character Data]
     G --> H{FIFO Full?}
 
-    H -- >No --> I[Assert Write Enable]
+    H -- No --> I[Assert Write Enable]
     I --> J[Write Character to FIFO]
     J --> K[Update Write Pointer]
     K --> L[Synchronize Gray Pointer]
     L --> M{All Characters Written?}
 
-    M -- >No --> G
-    M -- >Yes --> N[Prepare Read Operation]
+    M -- No --> G
+    M -- Yes --> N[Prepare Read Operation]
     N --> O{FIFO Empty?}
 
-    O --> No --> P[Assert Read Enable]
+    O -- No --> P[Assert Read Enable]
     P --> Q[Read Character from FIFO]
     Q --> R[Compare Read Data with Expected Data]
     R --> S{Data Match?}
 
-    S --> Yes --> T[Increment Pass Count]
-    S -- >No --> U[Increment Fail Count]
+    S -- Yes --> T[Increment Pass Count]
+    S -- No --> U[Increment Fail Count]
 
     T --> V{All Characters Read?}
     U --> V
-    V --> No --> O
-    V --> Yes --> W[Verify Final FIFO Status]
+    V -- No --> O
+    V -- Yes --> W[Verify Final FIFO Status]
     W --> X{Fail Count = 0?}
 
-    X --> Yes --> Y[Display FINAL RESULT PASS]
-    X --> No --> Z[Display FINAL RESULT FAIL]
+    X -- Yes --> Y([FINAL RESULT: PASS])
+    X -- No --> Z([FINAL RESULT: FAIL])
 
     Y --> AA([End Simulation])
     Z --> AA
 
-    ## 6. Project Flowchart
+    classDef process fill:#00345f,stroke:#087ac0,color:#ffffff,stroke-width:1px;
+    classDef decision fill:#001c30,stroke:#0088cc,color:#ffffff,stroke-width:1px;
+    classDef terminal fill:#064b83,stroke:#1599e8,color:#ffffff,stroke-width:1px;
 
-This flowchart summarizes the asynchronous FIFO verification process, from reset and data transfer to final result reporting.
+    class B,C,D,F,G,I,J,K,L,N,P,Q,R,T,U,W process;
+    class E,H,M,O,S,V,X decision;
+    class A,Y,Z,AA terminal;
 
-```mermaid
-flowchart LR
-    A([Start]) --> B[Initialize and Reset]
-    B --> C[Check FIFO Empty]
-    C --> D[Write OMKAR]
-    D --> E[Update Write Pointer]
-    E --> F[Synchronize Gray Pointer]
-    F --> G[Read FIFO Data]
-    G --> H{Data Matches?}
-    H -- Yes --> I[Increment Pass]
-    H -- No --> J[Increment Fail]
-    I --> K[Check Final FIFO Status]
-    J --> K
-    K --> L{Fail Count = 0?}
-    L -- Yes --> M([PASS])
-    L -- No --> N([FAIL])
+    linkStyle default stroke:#777777,stroke-width:1px;
 ```
 
-**Verification result:** 24 passes, 0 failures. The expected string `OMKAR` was written and read successfully.
-```
+**Verification Results**
+- Passed checks: **24**
+- Failed checks: **0**
+- Expected string: `OMKAR`
+- Received string: `OMKAR`
+- Final simulation status: **PASS**
 
 **Verification result:** 24 passes and 0 failures, with the expected string `OMKAR` successfully written to and read from the FIFO.
 ### Block diagram
