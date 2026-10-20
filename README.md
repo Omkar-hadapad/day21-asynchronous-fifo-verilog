@@ -94,7 +94,50 @@ The project covers:
 
 The following flowchart illustrates the simulation and verification process of the Day 21 Asynchronous FIFO design, including asynchronous reset, write and read operations, data comparison, and final pass/fail reporting.
 
+```mermaid
+flowchart TD
+    A([Start Simulation]) --> B[Initialize Clocks and Signals]
+    B --> C[Apply Asynchronous Reset]
+    C --> D[Reset Pointers and Synchronizers]
+    D --> E{FIFO Empty?}
 
+    E -- >Yes --> F[Verify Initial Status]
+    F --> G[Prepare Character Data]
+    G --> H{FIFO Full?}
+
+    H -- >No --> I[Assert Write Enable]
+    I --> J[Write Character to FIFO]
+    J --> K[Update Write Pointer]
+    K --> L[Synchronize Gray Pointer]
+    L --> M{All Characters Written?}
+
+    M -- >No --> G
+    M -- >Yes --> N[Prepare Read Operation]
+    N --> O{FIFO Empty?}
+
+    O --> No --> P[Assert Read Enable]
+    P --> Q[Read Character from FIFO]
+    Q --> R[Compare Read Data with Expected Data]
+    R --> S{Data Match?}
+
+    S --> Yes --> T[Increment Pass Count]
+    S -- >No --> U[Increment Fail Count]
+
+    T --> V{All Characters Read?}
+    U --> V
+    V --> No --> O
+    V --> Yes --> W[Verify Final FIFO Status]
+    W --> X{Fail Count = 0?}
+
+    X --> Yes --> Y[Display FINAL RESULT PASS]
+    X --> No --> Z[Display FINAL RESULT FAIL]
+
+    Y --> AA([End Simulation])
+    Z --> AA
+
+    ## 6. Project Flowchart
+
+This flowchart summarizes the asynchronous FIFO verification process, from reset and data transfer to final result reporting.
 
 ```mermaid
 flowchart LR
